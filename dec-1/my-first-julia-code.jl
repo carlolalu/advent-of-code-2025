@@ -26,22 +26,24 @@ let actual_position = 50, counter_of_zeros = 0
 
         println("Non-processed position after the instruction: $intermediate_value")
 
+        counter_of_zeros = counter_of_zeros + abs(div(intermediate_value,100))
+        println("intermediate_value: $intermediate_value")
+
+        println("Counter of zeros: $counter_of_zeros")
+
         intermediate_value = intermediate_value%100
+        println("intermediate_value: $intermediate_value")
+
+
         if intermediate_value < 0
-
-            println("INTERMEDIATE VALUE IS NEGATIVE: $intermediate_value")
-
+            counter_of_zeros += 1
             intermediate_value = 100+intermediate_value
         end
 
         actual_position = intermediate_value
 
         println("Actual position: $actual_position")
-        
-        if actual_position == 0
-            counter_of_zeros += 1
-            println("We have one more zero, now we are at: $counter_of_zeros")
-        end
+        println("Counter of zeros: $counter_of_zeros")
     end
 
     println("Final position: $actual_position, final counter_of_zeros: $counter_of_zeros")
